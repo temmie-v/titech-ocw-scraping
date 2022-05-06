@@ -14,6 +14,9 @@ Task {
     )
     let s3 = S3(client: client, region: .apnortheast1)
     
+    var succeedCount = 0
+    var failedCount = 0
+    
     for i in (202200001...202240000) {
         do {
             let course = try await titechOcw.fetchOCWCourse(courseId: "\(i)")
@@ -26,12 +29,14 @@ Task {
                             key: "/courseinfo/courses/\(i).json"
                         )
             _ = try await s3.putObject(putObjectRequest)
-
-            print(course)
+            
+            succeedCount += 1
         } catch {
-            print("\(i)\n\(error)\n")
+            failedCount += 1
         }
     }
+    
+    print("Task Finished. succeedCount: \(succeedCount) failedCount: \(failedCount)")
 
     exit(0)
 }

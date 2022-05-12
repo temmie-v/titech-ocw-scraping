@@ -19,15 +19,6 @@
       }
     },
     {
-      "identity" : "kanna",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tid-kijyun/Kanna.git",
-      "state" : {
-        "revision" : "f9e4922223dd0d3dfbf02ca70812cf5531fc0593",
-        "version" : "5.2.7"
-      }
-    },
-    {
       "identity" : "soto",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/soto-project/soto.git",
@@ -109,12 +100,21 @@
       }
     },
     {
+      "identity" : "swiftsoup",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scinfu/SwiftSoup.git",
+      "state" : {
+        "revision" : "41e7c263fb8c277e980ebcb9b0b5f6031d3d4886",
+        "version" : "2.4.2"
+      }
+    },
+    {
       "identity" : "titech-ocw-kit-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TitechAppProject/titech-ocw-kit-swift",
       "state" : {
-        "revision" : "68b7324196457e49bda7f09555d63bf8e8804784",
-        "version" : "0.3.3"
+        "revision" : "e51942e3bffd436c88076f5b10bd84bb470fe274",
+        "version" : "0.4.0"
       }
     }
   ],

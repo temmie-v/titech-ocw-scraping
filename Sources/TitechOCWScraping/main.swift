@@ -17,10 +17,12 @@ Task {
     var succeedCount = 0
     var failedCount = 0
     
-    for i in (202200001...202240000) {
+    let encoder = JSONEncoder()
+    
+    for i in (202200001...202240000).shuffled() {
         do {
             let course = try await titechOcw.fetchOCWCourse(courseId: "\(i)")
-            let bodyData = try JSONEncoder().encode(course)
+            let bodyData = try encoder.encode(course)
 
             let putObjectRequest = S3.PutObjectRequest(
                             acl: .publicRead,

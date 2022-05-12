@@ -1,0 +1,14 @@
+name: task
+on:
+  pull_request:
+  schedule:
+    - cron: '0 15 * * *'
+jobs:
+  task:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout
+      - name: Build
+        run: swift build -c release
+      - name: Run
+        run: ./.build/release/TitechOCWScraping

@@ -12,8 +12,9 @@ let package = Package(
         .tvOS(.v15)
     ],
     dependencies: [
-        .package(url: "https://github.com/TitechAppProject/titech-ocw-kit-swift", from: "0.3.0"),
-        .package(url: "https://github.com/soto-project/soto.git", from: "5.0.0")
+        .package(url: "https://github.com/TitechAppProject/titech-ocw-kit-swift", from: "0.4.0"),
+        .package(url: "https://github.com/soto-project/soto.git", from: "5.0.0"),
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -23,6 +24,7 @@ let package = Package(
             dependencies: [
                 .product(name: "TitechOCWKit", package: "titech-ocw-kit-swift"),
                 .product(name: "SotoS3", package: "soto"),
+                .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]),
         .testTarget(
             name: "TitechOCWScrapingTests",

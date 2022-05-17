@@ -10,11 +10,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build
         run: swift build -c release
-      - name: Run
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: ./.build/release/TitechOCWScraping --start 202200001  --end 202240000 --bucket titechapp-data
   run1:
     needs: build
     runs-on: ubuntu-20.04

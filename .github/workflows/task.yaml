@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 15 * * *'
 jobs:
-  task:
+  build:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -15,3 +15,21 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: ./.build/release/TitechOCWScraping --start 202200001  --end 202240000 --bucket titechapp-data
+  run1:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Run
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: ./.build/release/TitechOCWScraping --start 202200001  --end 202219999 --bucket titechapp-data
+  run2:
+    needs: build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Run
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: ./.build/release/TitechOCWScraping --start 202220000  --end 202240000 --bucket titechapp-data

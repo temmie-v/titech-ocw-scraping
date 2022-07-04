@@ -26,8 +26,5 @@ let package = Package(
                 .product(name: "SotoS3", package: "soto"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
             ]),
-        .testTarget(
-            name: "TitechOCWScrapingTests",
-            dependencies: ["TitechOCWScraping"]),
     ]
 )

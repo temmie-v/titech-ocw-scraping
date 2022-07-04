@@ -33,6 +33,7 @@ struct TitechOCWScraping: AsyncParsableCommand {
 
         for i in (start...end).shuffled() {
             do {
+                print("Start \(i)")
                 let course = try await titechOcw.fetchOCWCourse(courseId: "\(i)")
                 let bodyData = try encoder.encode(course)
 
@@ -46,7 +47,11 @@ struct TitechOCWScraping: AsyncParsableCommand {
                 print("Success \(i)")
 
                 succeedCount += 1
+            } catch TitechOCWError.invalidOCWCourseHtml {
+                /// 量が多すぎるので表示しない
+                // print("TitechOCWError.invalidOCWCourseHtml")
             } catch {
+                print("Error: \(error._domain):\(error._code) (\(error.localizedDescription)")
                 failedCount += 1
             }
         }

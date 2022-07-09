@@ -31,7 +31,7 @@ struct TitechOCWScraping: AsyncParsableCommand {
 
         let encoder = JSONEncoder()
 
-        for i in (start...end) {
+        for i in (start...end).shuffled() {
             do {
                 print("Start \(i)")
                 let course = try await titechOcw.fetchOCWCourse(courseId: "\(i)")

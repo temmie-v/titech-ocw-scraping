@@ -5,7 +5,7 @@ on:
     - cron: '0 15 * * *'
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Build
@@ -19,7 +19,7 @@ jobs:
           key: ${{ runner.os }}-${{ env.cache-name }}-${{ github.sha }}
   run1:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Restore build binary
         uses: actions/cache@v3
@@ -35,7 +35,7 @@ jobs:
         run: ./.build/release/TitechOCWScraping --start 202200001  --end 202209999 --bucket titechapp-data
   run2:
     needs: build
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Restore build binary
         uses: actions/cache@v3

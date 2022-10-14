@@ -8,10 +8,10 @@ import FoundationNetworking
 
 @main
 struct TitechOCWScraping: AsyncParsableCommand {
-    @Option(name: .shortAndLong, help: "Start OCWi Course Id.")
+    @Option(name: .shortAndLong, help: "Start OCW Course Id.")
     var start: Int
 
-    @Option(name: .shortAndLong, help: "End OCWi Course Id.")
+    @Option(name: .shortAndLong, help: "End OCW Course Id.")
     var end: Int
 
     @Option(name: .shortAndLong, help: "S3 bucket name used for upload.")

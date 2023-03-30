@@ -2,10 +2,10 @@ import SotoS3
 import Foundation
 import TitechOCWKit
 import ArgumentParser
+import NIOPosix
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
-import NIOTransportServices
 
 @main
 struct TitechOCWScraping: AsyncParsableCommand {
@@ -19,7 +19,7 @@ struct TitechOCWScraping: AsyncParsableCommand {
     var bucket: String
 
     mutating func run() async throws {
-        let eventLoopGroup = NIOTSEventLoopGroup()
+        let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         let titechOcw = TitechOCW(eventLoopGroup: eventLoopGroup)
 
         let bucket = bucket

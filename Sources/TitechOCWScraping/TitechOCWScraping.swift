@@ -5,6 +5,7 @@ import ArgumentParser
 #if canImport(FoundationNetworking)
 import FoundationNetworking
 #endif
+import NIOTransportServices
 
 @main
 struct TitechOCWScraping: AsyncParsableCommand {
@@ -18,12 +19,12 @@ struct TitechOCWScraping: AsyncParsableCommand {
     var bucket: String
 
     mutating func run() async throws {
-        let titechOcw = TitechOCW()
+        let eventLoopGroup = NIOTSEventLoopGroup()
+        let titechOcw = TitechOCW(eventLoopGroup: eventLoopGroup)
+
         let bucket = bucket
 
-        let client = AWSClient(
-            httpClientProvider: .createNew
-        )
+        let client = AWSClient(httpClientProvider: .createNewWithEventLoopGroup(eventLoopGroup))
         let s3 = S3(client: client, region: .apnortheast1)
 
         var succeedCount = 0
@@ -55,6 +56,9 @@ struct TitechOCWScraping: AsyncParsableCommand {
                 failedCount += 1
             }
         }
+
+        try await titechOcw.shutdown()
+        try await client.shutdown()
 
         print("Task Finished. succeedCount: \(succeedCount) failedCount: \(failedCount)")
     }

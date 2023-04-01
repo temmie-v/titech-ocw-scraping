@@ -140,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TitechAppProject/titech-ocw-kit-swift",
       "state" : {
-        "branch" : "feature/AsyncHTTPClient",
-        "revision" : "93e17fd7ebf7c823a079919bdec7ef8cea4c8968"
+        "revision" : "29a3b0c56e825141a81bca8b02cbb1c03b348c01",
+        "version" : "0.8.0"
       }
     }
   ],

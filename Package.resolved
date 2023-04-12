@@ -140,8 +140,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/TitechAppProject/titech-ocw-kit-swift",
       "state" : {
-        "revision" : "7d2dc6e15a23329bd3f4bc767be056144004ab24",
-        "version" : "0.9.0"
+        "revision" : "c698a09a5f8983a10a1bba4e8b2c2153279555a3",
+        "version" : "0.9.1"
       }
     }
   ],

@@ -1,7 +1,6 @@
 name: task
 on:
-  schedule:
-    - cron: '0 15 * * *'
+  pull_request:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,7 +30,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: ./.build/release/TitechOCWScraping --start 202300001  --end 202309999 --bucket titechapp-data --directory /courseinfo/courses
+        run: ./.build/release/TitechOCWScraping --start 202300001  --end 202309999 --bucket titechapp-data --directory /courseinfo/courses-test
   run2:
     needs: build
     runs-on: ubuntu-latest
@@ -47,4 +46,4 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: ./.build/release/TitechOCWScraping --start 202310000  --end 202340000 --bucket titechapp-data --directory /courseinfo/courses
+        run: ./.build/release/TitechOCWScraping --start 202310000  --end 202340000 --bucket titechapp-data --directory /courseinfo/courses-test

@@ -18,6 +18,9 @@ struct TitechOCWScraping: AsyncParsableCommand {
     @Option(name: .shortAndLong, help: "S3 bucket name used for upload.")
     var bucket: String
 
+    @Option(name: .shortAndLong, help: "S3 bucket directly　name used for upload.")
+    var directory: String
+
     mutating func run() async throws {
         let eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         let titechOcw = TitechOCW(eventLoopGroup: eventLoopGroup)
@@ -42,7 +45,7 @@ struct TitechOCWScraping: AsyncParsableCommand {
                                 acl: .publicRead,
                                 body: .data(bodyData),
                                 bucket: bucket,
-                                key: "/courseinfo/courses/\(i).json"
+                                key: "\(directory)/\(i).json"
                             )
                 _ = try await s3.putObject(putObjectRequest)
                 print("Success \(i)")

@@ -131,17 +131,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scinfu/SwiftSoup.git",
       "state" : {
-        "revision" : "8b6cf29eead8841a1fa7822481cb3af4ddaadba6",
-        "version" : "2.6.1"
+        "revision" : "028487d4a8a291b2fe1b4392b5425b6172056148",
+        "version" : "2.7.2"
       }
     },
     {
       "identity" : "titech-ocw-kit-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/TitechAppProject/titech-ocw-kit-swift",
+      "location" : "https://github.com/temmie-v/titech-ocw-kit-swift",
       "state" : {
-        "revision" : "dcdc4d6b78ef5765ba8cc00e3d149c4f45dca6c4",
-        "version" : "0.9.3"
+        "branch" : "main",
+        "revision" : "2aa60fe97b384266bfba2b438cafd4444f2547ae"
       }
     }
   ],
